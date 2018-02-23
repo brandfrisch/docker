@@ -1,15 +1,15 @@
 # docker build -t brandfrisch-docker/latest .
 # docker run -it --privileged --rm=true -v $(pwd):/mnt/host brandfrisch-docker/latest
 
-FROM docker:stable
+FROM docker:latest
 
 # install tools
 RUN apk add --update \
 		git vim build-base openssl-dev \
-		libffi-dev linux-headers;
+		libffi-dev linux-headers
 
 # install python
-RUN apk add --update python python-dev py-pip
+RUN apk add --update python python-dev py-pip pyopenssl
 
 # install node
 RUN apk add --update nodejs nodejs-npm
